@@ -3,6 +3,9 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
+using SerializeTutorial.Entities;
+using SerializeTutorial;
 
 namespace SerializeTutorial
 {
@@ -28,6 +31,28 @@ namespace SerializeTutorial
 
             Console.WriteLine(objNew.ID);
             Console.WriteLine(objNew.Name);
+
+            //New section
+            CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
+
+            List<CanoeTrainingExercises> exercises = trainingProgram.GetExerciseList();
+
+            foreach (CanoeTrainingExercises item in exercises)
+            {
+                foreach (StrengthExercises strength in item.StrengthExercisesList)
+                {
+                    StringBuilder strengthStringBuilder = new StringBuilder();
+
+                    strengthStringBuilder.Append($"{item.CanoeExerciseID},");
+                    strengthStringBuilder.Append($"{strength.Bodyweight},");
+                    strengthStringBuilder.Append($"{strength.Circuits},");
+                    strengthStringBuilder.Append($"{strength.FreeWeights},");
+                    strengthStringBuilder.Append($"{strength.Resistance},");
+                    Console.WriteLine(strengthStringBuilder);
+                }
+                Console.WriteLine($"{item.CanoeExerciseID}, {item.CoreWork}, {item.Endurance}, {item.Stretching}");
+                Console.WriteLine();
+            }
 
         }
     }

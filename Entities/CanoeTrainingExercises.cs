@@ -10,10 +10,10 @@ namespace SerializeTutorial.Entities
         /// Where the canoe training object is stored
         /// Similar to ClientEntry
         /// </summary>
-        public int CanoeTrainingID { get; set; }
-        public string CanoeErg { get; set; }
-        public string XcSkiing { get; set; }
-        public string Running { get; set; }
+        public int CanoeExerciseID { get; set; }
+        public string Endurance { get; set; }
+        public string Stretching { get; set; }
+        public string CoreWork { get; set; }
         public List<StrengthExercises> StrengthExercisesList { get; set; } = new List<StrengthExercises>();
     }
 }
