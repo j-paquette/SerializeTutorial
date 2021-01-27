@@ -13,24 +13,24 @@ namespace SerializeTutorial
     {
         static void Main(string[] args)
         {
-            //Initialize an object
-            Tutorial obj = new Tutorial();
-            obj.ID = 1;
-            obj.Name = ".Net";
+            //////Initialize an object
+            ////Tutorial obj = new Tutorial();
+            ////obj.ID = 1;
+            ////obj.Name = ".Net";
 
-            //Create the filestream
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(@"C:\FileStream\Sample.txt", FileMode.Create, FileAccess.Write);
+            //////Create the filestream
+            ////IFormatter formatter = new BinaryFormatter();
+            ////Stream stream = new FileStream(@"C:\FileStream\Sample.txt", FileMode.Create, FileAccess.Write);
 
-            //Serialize the object
-            formatter.Serialize(stream, obj);
-            stream.Close();
+            //////Serialize the object
+            ////formatter.Serialize(stream, obj);
+            ////stream.Close();
 
-            stream = new FileStream(@"C:\FileStream\Sample.txt", FileMode.Open, FileAccess.Read);
-            Tutorial objNew = (Tutorial)formatter.Deserialize(stream);
+            ////stream = new FileStream(@"C:\FileStream\Sample.txt", FileMode.Open, FileAccess.Read);
+            ////Tutorial objNew = (Tutorial)formatter.Deserialize(stream);
 
-            Console.WriteLine(objNew.ID);
-            Console.WriteLine(objNew.Name);
+            ////Console.WriteLine(objNew.ID);
+            ////Console.WriteLine(objNew.Name);
 
             //New section
             CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
@@ -53,6 +53,19 @@ namespace SerializeTutorial
                 Console.WriteLine($"{item.CanoeExerciseID}, {item.CoreWork}, {item.Endurance}, {item.Stretching}");
                 Console.WriteLine();
             }
+
+            //Create the filestream
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"C:\FileStream\ExerciseList.txt", FileMode.Create, FileAccess.Write);
+
+            //Serialize the object
+            formatter.Serialize(stream, exercises);
+            stream.Close();
+
+            stream = new FileStream(@"C:\FileStream\ExerciseList.txt", FileMode.Open, FileAccess.Read);
+            List<CanoeTrainingExercises> objNew = (List<CanoeTrainingExercises>)formatter.Deserialize(stream);
+
+            Console.WriteLine(objNew);
 
         }
     }

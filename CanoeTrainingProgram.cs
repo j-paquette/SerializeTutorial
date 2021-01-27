@@ -5,6 +5,7 @@ using SerializeTutorial.Entities;
 
 namespace SerializeTutorial
 {
+    [Serializable]
     public class CanoeTrainingProgram
     {
         public List<CanoeTrainingExercises> GetExerciseList()
