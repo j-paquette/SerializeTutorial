@@ -35,7 +35,7 @@ namespace SerializeTutorial
             //New section
             CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
 
-            List<CanoeTrainingExercises> exercises = trainingProgram.GetExerciseList();
+            List<CanoeTrainingExercises> exerciseList = trainingProgram.GetExerciseList();
 
             //foreach (CanoeTrainingExercises item in exercises)
             //{
@@ -54,17 +54,22 @@ namespace SerializeTutorial
             //    Console.WriteLine();
             //}
 
-            //Serialize the object
-            XmlSerializer mySerializer = new XmlSerializer(typeof(List<CanoeTrainingExercises>));
+            //Insert code to set properties and fields of the object
+            XmlSerializer mySerializer = new XmlSerializer(typeof(CanoeTrainingProgram));
+
+            //To write to a file, create a StreamWriter object
             StreamWriter myWriter = new StreamWriter("ExerciseList.xml");
-            mySerializer.Serialize(myWriter, exercises);
+
+            mySerializer.Serialize(myWriter, trainingProgram);
             myWriter.Close();
 
             //To read the file, create a FileStream.
             var myFileStreamDeserialize = new FileStream("ExerciseList.xml", FileMode.Open);
 
             //Call the Deserialize method and cast to the object type.
-            exercises = (CanoeTrainingProgram)mySerializer.Deserialize(myFileStreamDeserialize);
+            trainingProgram = (CanoeTrainingProgram)mySerializer.Deserialize(myFileStreamDeserialize);
+
+            Console.WriteLine(trainingProgram);
         }
     }
 }
