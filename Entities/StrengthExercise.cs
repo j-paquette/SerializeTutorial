@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace SerializeTutorial.Entities
 {
     [Serializable]
-    public class StrengthExercises
+    public class StrengthExercise
     {
         /// <summary>
         /// Where the weight training exercises are stored

@@ -8,24 +8,30 @@ namespace SerializeTutorial
     [Serializable]
     public class CanoeTrainingProgram
     {
-        public List<CanoeTrainingExercises> GetExerciseList()
+        public CanoeTrainingData GetCanoeTrainingData()
         {
-            List<CanoeTrainingExercises> canoeTrainingExercises = new List<CanoeTrainingExercises>();
+            List<CanoeTrainingExercise> canoeTrainingExercise = new List<CanoeTrainingExercise>();
 
-            UpdateListWithCanoeTrainingExercises(canoeTrainingExercises);
+            UpdateListWithCanoeTrainingExercise(canoeTrainingExercise);
+            //Allows for future updates, adding new properties to CanoeTrainingData, and customize xml from Array... to CanoeTrainingData 
+            //return new CanoeTrainingData {CanoeTrainingExercises = canoeTrainingExercise};
 
-            return canoeTrainingExercises;
+            var data = new CanoeTrainingData();
+
+            data.CanoeTrainingExercises = canoeTrainingExercise;
+
+            return data;
         }
 
         /// <summary>
         /// This method updates canoeTrainingList with values
         /// </summary>
         /// <param name="canoeTrainingList"></param>
-        public void UpdateListWithCanoeTrainingExercises(List<CanoeTrainingExercises> canoeTrainingList)
+        public void UpdateListWithCanoeTrainingExercise(List<CanoeTrainingExercise> canoeTrainingList)
         {
-            CanoeTrainingExercises exercises;
+            CanoeTrainingExercise exercises;
 
-            exercises = new CanoeTrainingExercises()
+            exercises = new CanoeTrainingExercise()
             {
                 CanoeExerciseID = 1,
                 Endurance = "cross-country skiing",
@@ -35,7 +41,7 @@ namespace SerializeTutorial
 
             canoeTrainingList.Add(exercises);
 
-            exercises.StrengthExercisesList.Add(new StrengthExercises()
+            exercises.StrengthExercises.Add(new StrengthExercise()
             {
                 Circuits = "Pyramid 1-2-3-2-1",
                 Bodyweight = "Pushups",
