@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace SerializeTutorial.Entities
 {
     [Serializable]
-    public class CanoeTrainingExercises
+    public class CanoeTrainingExercise
     {
         /// <summary>
         /// Where the canoe training object is stored
@@ -17,6 +17,7 @@ namespace SerializeTutorial.Entities
         public string Endurance { get; set; }
         public string Stretching { get; set; }
         public string CoreWork { get; set; }
-        public List<StrengthExercises> StrengthExercisesList { get; set; } = new List<StrengthExercises>();
+        //TODO: rename to StrengthExercises
+        public List<StrengthExercise> StrengthExercises { get; set; } = new List<StrengthExercise>();
     }
 }

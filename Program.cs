@@ -37,11 +37,11 @@ namespace SerializeTutorial
             //New section
             //CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
 
-            //List<CanoeTrainingExercises> exerciseList = trainingProgram.GetExerciseList();
+            //List<CanoeTrainingExercise> exerciseList = trainingProgram.GetExerciseList();
 
-            //foreach (CanoeTrainingExercises item in exercises)
+            //foreach (CanoeTrainingExercise item in exercises)
             //{
-            //    foreach (StrengthExercises strength in item.StrengthExercisesList)
+            //    foreach (StrengthExercises strength in item.StrengthExercises)
             //    {
             //        StringBuilder strengthStringBuilder = new StringBuilder();
 
@@ -71,11 +71,12 @@ namespace SerializeTutorial
         {
             CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
 
-            List<CanoeTrainingExercises> exerciseList = trainingProgram.GetExerciseList();
+            CanoeTrainingData exerciseList = trainingProgram.GetCanoeTrainingData();
 
             //Insert code to set properties and fields of the object
-            XmlSerializer myWriter = new XmlSerializer(typeof(List<CanoeTrainingExercises>));
+            XmlSerializer myWriter = new XmlSerializer(typeof(CanoeTrainingData));
 
+            //TODO: maybe chaining to encrypt/compress/send by network/send to rest api(Json)/new memorystream to make it more secure
             StreamWriter file = new StreamWriter(@"C:\FileStream\ExerciseList.xml");
 
             //var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//ExerciseList.xml";
@@ -91,14 +92,15 @@ namespace SerializeTutorial
             //WriteXml();
 
             //CanoeTrainingProgram trainingProgram = new CanoeTrainingProgram();
-            //List<CanoeTrainingExercises> exerciseList = trainingProgram.GetExerciseList();
+            //List<CanoeTrainingExercise> exerciseList = trainingProgram.GetExerciseList();
 
             //Insert code to set properties and fields of the object
-            XmlSerializer myReader = new XmlSerializer(typeof(List<CanoeTrainingExercises>));
+            XmlSerializer myReader = new XmlSerializer(typeof(CanoeTrainingData));
 
+            //TODO: maybe chaining to encrypt/compress/send by network/send to rest api(Json)/new memorystream to make it more secure
             StreamReader file = new StreamReader(@"C:\FileStream\ExerciseList.xml");
 
-            List<CanoeTrainingExercises> exerciseList = (List<CanoeTrainingExercises>)myReader.Deserialize(file);
+            CanoeTrainingData exerciseList = (CanoeTrainingData)myReader.Deserialize(file);
             file.Close();
 
             Console.WriteLine(exerciseList);
