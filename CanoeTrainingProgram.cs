@@ -8,14 +8,23 @@ namespace SerializeTutorial
     [Serializable]
     public class CanoeTrainingProgram
     {
+        /// <summary>
+        /// Replaced List<CanoeTrainingExercise> by a new class: CanoeTrainingData.
+        /// This allows more flexibility, in case I decide to add more properties later.
+        /// It allows for customizing the format of the xml field/property headers 
+        /// from <ArrayOfCanoeTrainingExercises></ArrayOfCanoeTrainingExercises> in ExerciseList.xml to 
+        /// a name that is more relevant, that we choose.
+        /// Also allows to add additional xml attributes.
+        /// </summary>
+        /// <returns>data</returns>
         public CanoeTrainingData GetCanoeTrainingData()
         {
             List<CanoeTrainingExercise> canoeTrainingExercise = new List<CanoeTrainingExercise>();
 
             UpdateListWithCanoeTrainingExercise(canoeTrainingExercise);
-            //Allows for future updates, adding new properties to CanoeTrainingData, and customize xml from Array... to CanoeTrainingData 
+           
             //return new CanoeTrainingData {CanoeTrainingExercises = canoeTrainingExercise};
-
+            //The following code does the same thing as the line above, just more detailed to show the process
             var data = new CanoeTrainingData();
 
             data.CanoeTrainingExercises = canoeTrainingExercise;
