@@ -9,7 +9,7 @@ using System.IO;
 
 namespace SerializeTutorial
 {
-    public class TrainingData
+    public class TrainingReport
     {
         /// <summary>
         /// Writes the values collected into CanoeTrainingData to ExerciseList.xml
