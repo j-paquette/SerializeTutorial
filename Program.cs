@@ -13,7 +13,7 @@ namespace SerializeTutorial
     {
         static void Main(string[] args)
         {
-            TrainingData trainingData = new TrainingData();
+            TrainingReport trainingData = new TrainingReport();
             trainingData.WriteXml();
             trainingData.ReadXml();
         }
