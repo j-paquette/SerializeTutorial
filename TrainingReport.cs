@@ -11,6 +11,7 @@ namespace SerializeTutorial
 {
     public class TrainingReport
     {
+
         /// <summary>
         /// Writes the values collected into CanoeTrainingData to ExerciseList.xml
         /// TODO: Can this be replaced with Designer Serialization (DesignerSerializationManager class)?

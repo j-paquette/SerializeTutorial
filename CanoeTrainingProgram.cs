@@ -22,12 +22,18 @@ namespace SerializeTutorial
             List<CanoeTrainingExercise> canoeTrainingExercise = new List<CanoeTrainingExercise>();
 
             UpdateListWithCanoeTrainingExercise(canoeTrainingExercise);
-           
+
+            // dateTimeArithmetic = new DateTimeArithmetic();
+
             //return new CanoeTrainingData {CanoeTrainingExercises = canoeTrainingExercise};
             //The following code does the same thing as the line above, just more detailed to show the process
             var data = new CanoeTrainingData();
 
+            //initialise the time right now
+            data.UtcDateTimeNow = DateTime.UtcNow;
+
             data.CanoeTrainingExercises = canoeTrainingExercise;
+
 
             return data;
         }
