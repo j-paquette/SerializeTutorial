@@ -14,5 +14,7 @@ namespace SerializeTutorial.Entities
 
         [XmlAttribute("Importance")]
         public int OtherValue { get; set; }
+
+        public DateTime UtcDateTimeNow { get; set; }
     }
 }
